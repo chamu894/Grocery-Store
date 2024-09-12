@@ -27,7 +27,7 @@ public class FilterCheckSignin implements Filter {
         if (httpServletRequest.getSession().getAttribute("user") != null) {
             chain.doFilter(request, response);
         } else {
-            httpServletResponse.sendRedirect("sign-in.html");
+            httpServletResponse.sendRedirect("signin.html");
         }
 
     }
