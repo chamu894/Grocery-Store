@@ -6,7 +6,6 @@ import dto.Response_DTO;
 import dto.User_DTO;
 import entity.User;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -69,6 +68,7 @@ public class SignUp extends HttpServlet {
                 user.setEmail(user_DTO.getEmail());
                 user.setFname(user_DTO.getFname());
                 user.setLname(user_DTO.getLname());
+                user.setMobile(user_DTO.getMobile());
                 user.setPassword(user_DTO.getPassword());
                 user.setVerification(String.valueOf(code));
 
