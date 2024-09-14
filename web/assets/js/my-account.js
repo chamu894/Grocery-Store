@@ -10,7 +10,7 @@ async function loadFeatures() {
         const qualityList = json.qualityList;
         const measureList = json.measureList;
         loadSelectOptions("category-select", categoryList, ["id", "name"]);
-        loadSelectOptions("model-select", modelList, ["id", "name"]);
+//        loadSelectOptions("model-select", modelList, ["id", "name"]);
         loadSelectOptions("quality-select", qualityList, ["id", "name"]);
         loadSelectOptions("measure-select", measureList, ["id", "name"]);
     } else {
