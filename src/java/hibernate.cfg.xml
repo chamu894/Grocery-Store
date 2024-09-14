@@ -10,9 +10,11 @@
         <property name="hibernate.show_sql">true</property>   
         <mapping class="entity.User"/>
         <mapping class="Category" />
-        <mapping class="Model" />
-        <mapping class="Measure" />
-        <mapping class="" />
+        <mapping class="Model"/>
+        <mapping class="Measure"/>
+        <mapping class="Quality"/>
+        <mapping class="Product_Status"/>
+        
  
     </session-factory>
 </hibernate-configuration>
