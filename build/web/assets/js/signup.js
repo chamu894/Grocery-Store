@@ -21,13 +21,24 @@ async function signUp() {
 
     if (response.ok) {
         const json = await response.json();
+        
+        const popup = Notification();
 
         if (json.success) {
             window.location = "verify-account.html";
+            
+            popup.success({
+                message: json.content
+            });
+            
         } else {
             document.getElementById("message").innerHTML = json.content;
+            
+            popup.success({
+                message: json.content
+            });
         }
     } else {
-        document.getElementById("message").innerHTML = "Please try agin later";
+        console.log("try agin");
     }
 }

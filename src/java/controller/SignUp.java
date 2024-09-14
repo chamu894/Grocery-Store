@@ -77,7 +77,7 @@ public class SignUp extends HttpServlet {
                     public void run() {
                         Mail.sendMail(
                                 user_DTO.getEmail(),
-                                "Smart Trade Email Verification",
+                                "Frutin Email Verification",
                                 "<h1>Verification Code : " + user.getVerification() + "</h1>"
                         );
                     }
