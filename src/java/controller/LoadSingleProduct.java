@@ -28,7 +28,8 @@ public class LoadSingleProduct extends HttpServlet {
 
         try {
 
-            String productId = request.getParameter("id");
+            String productId = request.getParameter("pid").toString();
+            System.out.println(productId);
 
             if (Validations.isInteger(productId)) {
 

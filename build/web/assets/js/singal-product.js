@@ -2,8 +2,8 @@ async function loadProduct() {
 
     const parameters = new URLSearchParams(window.location.search);
 
-    if (parameters.has("pid")) {
-        const pid = parameters.get("pid");
+    if (parameters.has("id")) {
+        const pid = parameters.get("id");
         const response = await fetch("LoadSingleProduct?pid=" + pid);
 
         if (response.ok) {
@@ -37,13 +37,11 @@ async function loadProduct() {
             
 
         } else {
-//            window.location = "index.html";
-console.log("1");
+            window.location = "index.html";
         }
 
     } else {
-//        window.location = "index.html";
-console.log("2");
+        window.location = "index.html";
     }
 
 }
