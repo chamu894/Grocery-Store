@@ -388,7 +388,7 @@
                 </div>
             </div>
         </div>
-        <header class="th-header header-layout1">
+        <header class="th-header header-layout1" >
             <div class="header-top">
                 <div class="container">
                     <div
@@ -540,16 +540,17 @@
         </div>
         <section class="product-details space-top space-extra-bottom">
             <div class="container">
+
+                <!--single Product start-->
+
                 <div class="row gx-60">
-
-
-                    <!--single Product start-->
 
 
                     <div class="col-lg-6">
                         <div class="product-big-img">
                             <div class="img">
                                 <img
+                                    id="image1"
                                     src="assets/img/product/product_details_1_1.jpg"
                                     alt="Product Image"
                                     />
@@ -561,8 +562,9 @@
 
                     <div class="col-lg-6 align-self-center">
                         <div class="product-about">
-                            <p class="price">$120.85</p>
-                            <h2 class="product-title">Bosco Apple Fruit</h2>
+                            <p class="price">Rs: <span id="product-price"></span></p>
+                            <h2 class="product-title" id="title">Bosco Apple Fruit</h2>
+                            <p class="text-title me-3">Published On <span id="product-published-on"> </span></p>
                             <div class="product-rating">
                                 <div
                                     class="star-rating"
@@ -578,12 +580,11 @@
                                    >(<span class="count">4</span> customer reviews)</a
                                 >
                             </div>
-                            <p class="text">
-                                Prepare to embark on a sensory journey with the Bosco Apple, a
-                                fruit that transcends the ordinary and promises an unparalleled
-                                taste experience. These apples are nothing short of nature’s
-                                masterpiece, celebrated for their distinctive blend of flavors
-                                and their captivating visual allure.
+                            <p class="text" id="product-description">
+                                Prepare to embark on a sensory journey with the Bosco Apple, a fruit that 
+                                transcends the ordinary and promises an unparalleled taste experience. These 
+                                apples are nothing short of nature’s masterpiece, celebrated for their 
+                                distinctive blend of flavors and their captivating visual allure.
                             </p>
                             <div class="mt-2 link-inherit">
                                 <p>
@@ -618,26 +619,23 @@
                                     ></a>
                             </div>
                             <div class="product_meta">
-                                <span class="sku_wrapper"
-                                      >SKU: <span class="sku">Bosco-Apple-Fruit</span></span
-                                >
-                                <span class="posted_in"
-                                      >Category: <a href="shop.html">Fresh Fruits</a></span
-                                >
-                                <span
-                                    >Tags: <a href="shop.html">Fruits</a
-                                    ><a href="shop.html">Organic</a></span
-                                >
+
+                                <span class="sku_wrapper">Category: <span class="sku" id="product-category">Bosco-Apple-Fruit</span></span>
+                                <span class="posted_in">Model: <span id="product-model">Fresh Fruits</span></span>
+                                <span>Quality: <span id="product-quality"></span></span>
+                                <span>Measure: <span id="product-measure"></span></span>
+                                <span>Quantity: <span id="product-quantity"></span></span>
+
                             </div>
                         </div>
                     </div>
-
-
-                    <!--single Product end-->
-
-
-
                 </div>
+
+                <!--single Product end-->
+
+
+
+
                 <ul class="nav product-tab-style1" id="productTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <a
@@ -1530,7 +1528,7 @@
         <script src="assets/js/app.min.js"></script>
         <script src="assets/js/main.js"></script>
         <script src="assets/js/singal-product.js"></script>
-        
+
     </body>
 
 </html>
