@@ -25,6 +25,7 @@ public class LoadSingleProduct extends HttpServlet {
 
         Gson gson = new Gson();
         Session session = HibernateUtil.getSessionFactory().openSession();
+        JsonObject jsonObject = new JsonObject();
 
         try {
 
@@ -34,31 +35,35 @@ public class LoadSingleProduct extends HttpServlet {
             if (Validations.isInteger(productId)) {
 
                 Product product = (Product) session.get(Product.class, Integer.parseInt(productId));
-                product.getUser().setPassword(null);
-                product.getUser().setVerification(null);
-                product.getUser().setEmail(null);
+                if (product == null) {
+                    jsonObject.addProperty("status", false);
+                } else {
 
-                Criteria criteria1 = session.createCriteria(Model.class);
-                criteria1.add(Restrictions.eq("category", product.getModel().getCategory()));
-                List<Model> modelList = criteria1.list();
+                    product.getUser().setPassword(null);
+                    product.getUser().setVerification(null);
+                    product.getUser().setEmail(null);
 
-                Criteria criteria2 = session.createCriteria(Product.class);
-                criteria2.add(Restrictions.in("model", modelList));
-                criteria2.add(Restrictions.ne("id", product.getId()));
-                criteria2.setMaxResults(6);
+                    Criteria criteria1 = session.createCriteria(Model.class);
+                    criteria1.add(Restrictions.eq("category", product.getModel().getCategory()));
+                    List<Model> modelList = criteria1.list();
 
-                List<Product> productList = criteria2.list();
+                    Criteria criteria2 = session.createCriteria(Product.class);
+                    criteria2.add(Restrictions.in("model", modelList));
+                    criteria2.add(Restrictions.ne("id", product.getId()));
+                    criteria2.setMaxResults(6);
 
-                for (Product product1 : productList) {
-                    product1.getUser().setPassword(null);
-                    product1.getUser().setVerification(null);
-                    product1.getUser().setEmail(null);
+                    List<Product> productList = criteria2.list();
+
+                    for (Product product1 : productList) {
+                        product1.getUser().setPassword(null);
+                        product1.getUser().setVerification(null);
+                        product1.getUser().setEmail(null);
+                    }
+
+                    jsonObject.addProperty("status", true);
+                    jsonObject.add("product", gson.toJsonTree(product));
+                    jsonObject.add("productList", gson.toJsonTree(productList));
                 }
-
-                JsonObject jsonObject = new JsonObject();
-                jsonObject.add("product", gson.toJsonTree(product));
-                jsonObject.add("productList", gson.toJsonTree(productList));
-
                 response.setContentType("application/json");
                 response.getWriter().write(gson.toJson(jsonObject));
 

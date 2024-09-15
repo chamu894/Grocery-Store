@@ -926,15 +926,20 @@
                         id="productSlider1"
                         data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"4"}}}'
                         >
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
+                        
+                        <div class="swiper-wrapper" id="similar-product-main">
+                            
+                            <div class="swiper-slide" id="similar-product">
                                 <div class="th-product product-grid">
                                     <div class="product-img">
-                                        <img
+                                        <a href="#" id="similar-product-a1">
+                                            <img
+                                            id="similar-product-image"
                                             src="assets/img/product/product_1_1.jpg"
                                             alt="Product Image"
                                             />
-                                        <span class="product-tag">Hot</span>
+                                        </a>
+                                        <span class="product-tag" id="similar-product-quality">Hot</span>
                                         <div class="actions">
                                             <a href="#QuickView" class="icon-btn popup-content"
                                                ><i class="far fa-eye"></i
@@ -948,13 +953,13 @@
                                         </div>
                                     </div>
                                     <div class="product-content">
-                                        <a href="shop-details.html" class="product-category"
+                                        <a href="shop-details.html" class="product-category" id="similar-product-category"
                                            >Fresh Fruits</a
                                         >
                                         <h3 class="product-title">
-                                            <a href="shop-details.html">Bosco Apple Fruit</a>
+                                            <a href="shop-details.html" id="similar-product-title">Bosco Apple Fruit</a>
                                         </h3>
-                                        <span class="price">$177.85</span>
+                                        <span class="price" id="similar-product-price">$177.85</span>
                                         <div class="woocommerce-product-rating">
                                             <span class="count">(120 Reviews)</span>
                                             <div
