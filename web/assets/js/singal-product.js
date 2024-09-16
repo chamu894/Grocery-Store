@@ -66,7 +66,7 @@ async function loadProduct() {
                             minimumFractionDigits: 2
                         }
                 ).format(item.price);
-                productCloneHtml.querySelector("#similar-product-category").style.borderColor = item.model.category.name;
+                productCloneHtml.querySelector("#similar-product-category").innerHTML = item.model.category.name;
 
                 productCloneHtml.querySelector("#add-to-cart-similar").addEventListener(
                         "click",
@@ -121,3 +121,43 @@ async function loadProduct() {
     }
 
 }
+
+
+async function addToCart(id, qty) {
+
+    const response = await fetch(
+            "AddToCart?id=" + id + "&qty=" + qty
+            );
+
+    if (response.ok) {
+
+        const json = await response.json();
+
+        const popup = Notification();
+        popup.setProperty({
+            duration: 5000,
+            isHidePrev: true
+        });
+
+        if (json.success) {
+
+            popup.success({
+                message: json.content
+            });
+
+        } else {
+
+            popup.error({
+                message: json.content
+            });
+
+        }
+
+    } else {
+        popup.error({
+            message: "Unable to process your request"
+        });
+    }
+    
+}
+

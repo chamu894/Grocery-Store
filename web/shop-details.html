@@ -105,6 +105,8 @@
         <link rel="stylesheet" href="assets/css/app.min.css" />
         <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
         <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/notification.css" />
+        
     </head>
     <body onload="loadProduct();">
         <div class="preloader">
@@ -597,6 +599,7 @@
                             <div class="actions">
                                 <div class="quantity">
                                     <input
+                                        id="add-to-cart-qty"
                                         type="number"
                                         class="qty-input"
                                         step="1"
@@ -613,7 +616,7 @@
                                         <i class="far fa-chevron-down"></i>
                                     </button>
                                 </div>
-                                <button class="th-btn">Add to Cart</button>
+                                <button class="th-btn" id="add-to-cart-main">Add to Cart</button>
                                 <a href="wishlist.html" class="icon-btn"
                                    ><i class="far fa-heart"></i
                                     ></a>
@@ -944,7 +947,7 @@
                                             <a href="#QuickView" class="icon-btn popup-content"
                                                ><i class="far fa-eye"></i
                                                 ></a>
-                                            <a href="cart.html" class="icon-btn"
+                                            <a href="cart.html" class="icon-btn" id="add-to-cart-similar"
                                                ><i class="far fa-cart-plus"></i
                                                 ></a>
                                             <a href="wishlist.html" class="icon-btn"
@@ -1533,6 +1536,8 @@
         <script src="assets/js/app.min.js"></script>
         <script src="assets/js/main.js"></script>
         <script src="assets/js/singal-product.js"></script>
+        
+        <script src="assets/js/notification.js"></script>
 
     </body>
 
