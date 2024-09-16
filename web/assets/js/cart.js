@@ -46,14 +46,14 @@ async function loadCartItems() {
                 cartItemRowClone.querySelector("#cart-item-a").href = "shop-details.html?id=" + item.product.id;
                 cartItemRowClone.querySelector("#cart-item-img").src = "product-images/" + item.product.id + "/image1.png";
                 cartItemRowClone.querySelector("#cart-item-title").innerHTML = item.product.title;
-                cartItemRowClone.querySelector("#cart-item-price").innerHTML = "Rs." + new Intl.NumberFormat(
+                cartItemRowClone.querySelector("#cart-item-price").innerHTML = "" + new Intl.NumberFormat(
                         "en-US",
                         {
                             minimumFractionDigits: 2
                         }
                 ).format(item.product.price);
                 cartItemRowClone.querySelector("#cart-item-qty").value = item.qty;
-                cartItemRowClone.querySelector("#cart-item-subtotal").innerHTML = "Rs." + new Intl.NumberFormat(
+                cartItemRowClone.querySelector("#cart-item-subtotal").innerHTML = "" + new Intl.NumberFormat(
                         "en-US",
                         {
                             minimumFractionDigits: 2
@@ -64,7 +64,7 @@ async function loadCartItems() {
             });
 
             document.getElementById("cart-total-qty").innerHTML = totalQty;
-            document.getElementById("cart-total").innerHTML = "Rs." + new Intl.NumberFormat(
+            document.getElementById("cart-total").innerHTML = "" + new Intl.NumberFormat(
                     "en-US",
                     {
                         minimumFractionDigits: 2
