@@ -1,87 +1,43 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.PayHere;
 
-/**
- *
- * @author chamu
- */
 @WebServlet(name = "VerifyPayments", urlPatterns = {"/VerifyPayments"})
 public class VerifyPayments extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet VerifyPayments</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet VerifyPayments at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String merchant_id = request.getParameter("merchant_id");
+        String order_id = request.getParameter("order_id");
+        String payhere_amount = request.getParameter("payhere_amount");
+        String payhere_currency = request.getParameter("payhere_currency");
+        String status_code = request.getParameter("status_code");
+        String md5sig = request.getParameter("md5sig");
+
+        String merchant_secret = "MzM0OTQxMDkwMjEyMTk2MTg5MzUxNTM4NjYzNzc1MzIxNjkzODc0Nw==";
+        String merchant_secret_md5hash = PayHere.generateMD5(merchant_secret);
+
+        String generateMD5Hash = PayHere.generateMD5(
+                merchant_id
+                + order_id
+                + payhere_amount
+                + payhere_currency
+                + status_code
+                + merchant_secret_md5hash
+        );
+
+        if (generateMD5Hash.equals(md5sig) && status_code.equals("2")) {
+
+            //update order status paid
         }
-    }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

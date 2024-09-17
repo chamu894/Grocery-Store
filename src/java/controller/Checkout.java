@@ -93,11 +93,11 @@ public class Checkout extends HttpServlet {
             } else {
 
                 //create new address
-                if (first_name.isBlank()) {
+                if (first_name.isEmpty()) {
 
                     responseJsonObject.addProperty("message", "Please fill first name");
 
-                } else if (last_name.isBlank()) {
+                } else if (last_name.isEmpty()) {
 
                     responseJsonObject.addProperty("message", "Please fill last name");
 
