@@ -16,6 +16,11 @@
         <mapping class="entity.Product_Status"/>
         <mapping class="entity.Product"/>
         <mapping class="entity.Cart"/>
+        <mapping class="entity.Address"/>
+        <mapping class="entity.City"/>
+        <mapping class="entity.Order_Item"/>
+        <mapping class="entity.Order_Status"/>
+        <mapping class="entity.Orders"/>
         
  
     </session-factory>

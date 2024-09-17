@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import entity.Category;
 import entity.Product;
-import entity.Measure;
 import entity.Quality;
 import java.io.IOException;
 import java.util.List;
@@ -37,28 +36,23 @@ public class LoadData extends HttpServlet {
         List<Category> categoryList = criteria1.list();
         jsonObject.add("categoryList", gson.toJsonTree(categoryList));
 
-        //get condition list from DB
-        Criteria criteria2 = session.createCriteria(Measure.class);
-        List<Measure> measureList = criteria2.list();
-        jsonObject.add("measureList", gson.toJsonTree(measureList));
-
         //get color list from DB
-        Criteria criteria3 = session.createCriteria(Quality.class);
-        List<Quality> qualityList = criteria3.list();
+        Criteria criteria2 = session.createCriteria(Quality.class);
+        List<Quality> qualityList = criteria2.list();
         jsonObject.add("qualityList", gson.toJsonTree(qualityList));
 
         //get product list from DB
-        Criteria criteria5 = session.createCriteria(Product.class);
+        Criteria criteria3 = session.createCriteria(Product.class);
 
         //Get latest product
-        criteria5.addOrder(Order.desc("id"));
-        jsonObject.addProperty("allProductCount", criteria5.list().size());
+        criteria3.addOrder(Order.desc("id"));
+        jsonObject.addProperty("allProductCount", criteria3.list().size());
 
         //set product range
-        criteria5.setFirstResult(0);
-        criteria5.setMaxResults(6);
+        criteria3.setFirstResult(0);
+        criteria3.setMaxResults(6);
 
-        List<Product> productList = criteria5.list();
+        List<Product> productList = criteria3.list();
 
         //remove user from product
         for (Product product : productList) {

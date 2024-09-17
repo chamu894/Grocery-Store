@@ -100,17 +100,238 @@
             href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Lexend:wght@300;400;500;600;700;800;900&amp;family=Lobster&amp;display=swap"
             rel="stylesheet"
             />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
+        <link rel="stylesheet" href="assets/css/vendor/flaticon/flaticon.css">
+        <link rel="stylesheet" href="assets/css/vendor/slick.css">
+        <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
+        <link rel="stylesheet" href="assets/css/vendor/jquery-ui.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/sal.css">
+        <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
+        <link rel="stylesheet" href="assets/css/vendor/base.css">
+        <link rel="stylesheet" href="assets/css/sstyle.min.css">
+        <link rel="stylesheet" href="assets/css/notification.css"/>
+
+
         <link rel="stylesheet" href="assets/css/app.min.css" />
         <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
         <link rel="stylesheet" href="assets/css/style.css" />
     </head>
-    <body>
+    <body onload="loadData();">
         <div class="preloader">
             <button class="th-btn preloaderCls">Cancel Preloader</button>
             <div class="preloader-inner">
                 <div class="loader">
                     <span></span> <span></span> <span></span> <span></span> <span></span>
                     <span></span>
+                </div>
+            </div>
+        </div>
+        <div id="QuickView" class="white-popup mfp-hide">
+            <div class="container bg-white rounded-10">
+                <div class="row gx-60">
+                    <div class="col-lg-6">
+                        <div class="product-big-img">
+                            <div class="img">
+                                <img
+                                    src="assets/img/product/product_details_1_1.jpg"
+                                    alt="Product Image"
+                                    />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 align-self-center">
+                        <div class="product-about">
+                            <p class="price">$120.85<del>$150.99</del></p>
+                            <h2 class="product-title">Bosco Apple Fruit</h2>
+                            <div class="product-rating">
+                                <div
+                                    class="star-rating"
+                                    role="img"
+                                    aria-label="Rated 5.00 out of 5"
+                                    >
+                                    <span style="width: 100%"
+                                          >Rated <strong class="rating">5.00</strong> out of 5 based
+                                        on <span class="rating">1</span> customer rating</span
+                                    >
+                                </div>
+                                <a href="shop-details.html" class="woocommerce-review-link"
+                                   >(<span class="count">4</span> customer reviews)</a
+                                >
+                            </div>
+                            <p class="text">
+                                Prepare to embark on a sensory journey with the Bosco Apple, a
+                                fruit that transcends the ordinary and promises an unparalleled
+                                taste experience. These apples are nothing short of nature’s
+                                masterpiece, celebrated for their distinctive blend of flavors
+                                and their captivating visual allure.
+                            </p>
+                            <div class="mt-2 link-inherit">
+                                <p>
+                                    <strong class="text-title me-3">Availability:</strong>
+                                    <span class="stock in-stock"
+                                          ><i class="far fa-check-square me-2 ms-1"></i>In Stock</span
+                                    >
+                                </p>
+                            </div>
+                            <div class="actions">
+                                <div class="quantity">
+                                    <input
+                                        type="number"
+                                        class="qty-input"
+                                        step="1"
+                                        min="1"
+                                        max="100"
+                                        name="quantity"
+                                        value="1"
+                                        title="Qty"
+                                        />
+                                    <button class="quantity-plus qty-btn">
+                                        <i class="far fa-chevron-up"></i>
+                                    </button>
+                                    <button class="quantity-minus qty-btn">
+                                        <i class="far fa-chevron-down"></i>
+                                    </button>
+                                </div>
+                                <button class="th-btn">Add to Cart</button>
+                                <a href="wishlist.html" class="icon-btn"
+                                   ><i class="far fa-heart"></i
+                                    ></a>
+                            </div>
+                            <div class="product_meta">
+                                <span class="sku_wrapper"
+                                      >SKU: <span class="sku">Bosco-Apple-Fruit</span></span
+                                >
+                                <span class="posted_in"
+                                      >Category: <a href="shop.html">Fresh Fruits</a></span
+                                >
+                                <span
+                                    >Tags: <a href="shop.html">Fruits</a
+                                    ><a href="shop.html">Organic</a></span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button title="Close (Esc)" type="button" class="mfp-close">×</button>
+            </div>
+        </div>
+        <div class="sidemenu-wrapper sidemenu-cart d-none d-lg-block">
+            <div class="sidemenu-content">
+                <button class="closeButton sideMenuCls">
+                    <i class="far fa-times"></i>
+                </button>
+                <div class="widget woocommerce widget_shopping_cart">
+                    <h3 class="widget_title">Shopping cart</h3>
+                    <div class="widget_shopping_cart_content">
+                        <ul class="woocommerce-mini-cart cart_list product_list_widget">
+                            <li class="woocommerce-mini-cart-item mini_cart_item">
+                                <a href="#" class="remove remove_from_cart_button"
+                                   ><i class="far fa-times"></i
+                                    ></a>
+                                <a href="#"
+                                   ><img
+                                        src="assets/img/product/product_thumb_1_1.jpg"
+                                        alt="Cart Image"
+                                        />Bosco Apple Fruit</a
+                                >
+                                <span class="quantity"
+                                      >1 ×
+                                    <span class="woocommerce-Price-amount amount"
+                                          ><span class="woocommerce-Price-currencySymbol">$</span
+                                        >940.00</span
+                                    ></span
+                                >
+                            </li>
+                            <li class="woocommerce-mini-cart-item mini_cart_item">
+                                <a href="#" class="remove remove_from_cart_button"
+                                   ><i class="far fa-times"></i
+                                    ></a>
+                                <a href="#"
+                                   ><img
+                                        src="assets/img/product/product_thumb_1_2.jpg"
+                                        alt="Cart Image"
+                                        />Green Cauliflower</a
+                                >
+                                <span class="quantity"
+                                      >1 ×
+                                    <span class="woocommerce-Price-amount amount"
+                                          ><span class="woocommerce-Price-currencySymbol">$</span
+                                        >899.00</span
+                                    ></span
+                                >
+                            </li>
+                            <li class="woocommerce-mini-cart-item mini_cart_item">
+                                <a href="#" class="remove remove_from_cart_button"
+                                   ><i class="far fa-times"></i
+                                    ></a>
+                                <a href="#"
+                                   ><img
+                                        src="assets/img/product/product_thumb_1_3.jpg"
+                                        alt="Cart Image"
+                                        />Mandarin orange</a
+                                >
+                                <span class="quantity"
+                                      >1 ×
+                                    <span class="woocommerce-Price-amount amount"
+                                          ><span class="woocommerce-Price-currencySymbol">$</span
+                                        >756.00</span
+                                    ></span
+                                >
+                            </li>
+                            <li class="woocommerce-mini-cart-item mini_cart_item">
+                                <a href="#" class="remove remove_from_cart_button"
+                                   ><i class="far fa-times"></i
+                                    ></a>
+                                <a href="#"
+                                   ><img
+                                        src="assets/img/product/product_thumb_1_4.jpg"
+                                        alt="Cart Image"
+                                        />Shallot Red onion</a
+                                >
+                                <span class="quantity"
+                                      >1 ×
+                                    <span class="woocommerce-Price-amount amount"
+                                          ><span class="woocommerce-Price-currencySymbol">$</span
+                                        >723.00</span
+                                    ></span
+                                >
+                            </li>
+                            <li class="woocommerce-mini-cart-item mini_cart_item">
+                                <a href="#" class="remove remove_from_cart_button"
+                                   ><i class="far fa-times"></i
+                                    ></a>
+                                <a href="#"
+                                   ><img
+                                        src="assets/img/product/product_thumb_1_5.jpg"
+                                        alt="Cart Image"
+                                        />Sour Red Cherry</a
+                                >
+                                <span class="quantity"
+                                      >1 ×
+                                    <span class="woocommerce-Price-amount amount"
+                                          ><span class="woocommerce-Price-currencySymbol">$</span
+                                        >1080.00</span
+                                    ></span
+                                >
+                            </li>
+                        </ul>
+                        <p class="woocommerce-mini-cart__total total">
+                            <strong>Subtotal:</strong>
+                            <span class="woocommerce-Price-amount amount"
+                                  ><span class="woocommerce-Price-currencySymbol">$</span
+                                >4398.00</span
+                            >
+                        </p>
+                        <p class="woocommerce-mini-cart__buttons buttons">
+                            <a href="cart.html" class="th-btn wc-forward">View cart</a>
+                            <a href="checkout.html" class="th-btn checkout wc-forward"
+                               >Checkout</a
+                            >
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,11 +353,11 @@
                 <div class="th-mobile-menu">
                     <ul>
                         <li class="menu-item-has-children">
-                            <a href="index.html">Home</a>
+                            <a href="home-organic-farm.html">Home</a>
                             <ul class="sub-menu">
-                                <li><a href="index.html">Organic Farm</a></li>
-                                <li><a href="index.html">Organic Food</a></li>
-                                <li><a href="index.html">Mega Shop</a></li>
+                                <li><a href="home-organic-farm.html">Organic Farm</a></li>
+                                <li><a href="home-organic-food.html">Organic Food</a></li>
+                                <li><a href="home-mega-shop.html">Mega Shop</a></li>
                             </ul>
                         </li>
                         <li><a href="about.html">About Us</a></li>
@@ -231,7 +452,7 @@
                         <div class="row align-items-center justify-content-between">
                             <div class="col-auto">
                                 <div class="header-logo">
-                                    <a href="index.html"
+                                    <a href="home-organic-farm.html"
                                        ><img src="assets/img/logo.svg" alt="Frutin"
                                           /></a>
                                 </div>
@@ -240,15 +461,15 @@
                                 <nav class="main-menu d-none d-lg-inline-block">
                                     <ul>
                                         <li class="menu-item-has-children">
-                                            <a href="index.html">Home</a>
+                                            <a href="home-organic-farm.html">Home</a>
                                             <ul class="sub-menu">
                                                 <li>
-                                                    <a href="index.html">Organic Farm</a>
+                                                    <a href="home-organic-farm.html">Organic Farm</a>
                                                 </li>
                                                 <li>
-                                                    <a href="index.html">Organic Food</a>
+                                                    <a href="home-organic-food.html">Organic Food</a>
                                                 </li>
-                                                <li><a href="index.html">Mega Shop</a></li>
+                                                <li><a href="home-mega-shop.html">Mega Shop</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="about.html">About Us</a></li>
@@ -324,68 +545,14 @@
                 <div class="breadcumb-content">
                     <h1 class="breadcumb-title">Shop</h1>
                     <ul class="breadcumb-menu">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="home-organic-farm.html">Home</a></li>
                         <li>Shop</li>
                     </ul>
                 </div>
             </div>
         </div>
-
         <section class="space-top space-extra-bottom">
             <div class="container">
-                <!-- Advanced Search Section -->
-                <div class="row justify-content-center mb-4">
-                    <div class="col-lg-10">
-                        <form class="row gy-3">
-                            <div class="col-md-4">
-                                <label for="searchKeyword" class="form-label">Keyword</label>
-                                <input type="text" class="form-control" id="searchKeyword" placeholder="Enter product name">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="category" class="form-label">Category</label>
-                                <select id="category" class="form-select">
-                                    <option selected>Select Category</option>
-                                    <option value="fruits">Fresh Fruits</option>
-                                    <option value="vegetables">Vegetables</option>
-                                    <option value="dairy">Dairy Products</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="minPrice" class="form-label">Price Range</label>
-                                <div class="input-group">
-                                    <input type="number" class="form-control" id="minPrice" placeholder="Min Price">
-                                    <span class="input-group-text">-</span>
-                                    <input type="number" class="form-control" id="maxPrice" placeholder="Max Price">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="rating" class="form-label">Quality</label>
-                                <select id="rating" class="form-select">
-                                    <option selected>Select Rating</option>
-                                    <option value="5">Fresh</option>
-                                    <option value="4">Hot</option>
-                                    <option value="3">New</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="sortBy" class="form-label">Sort By</label>
-                                <select id="sortBy" class="form-select">
-                                    <option selected>Default Sorting</option>
-                                    <option value="popularity">Sort by Popularity</option>
-                                    <option value="rating">Sort by Rating</option>
-                                    <option value="date">Sort by Latest</option>
-                                    <option value="price-low">Price: Low to High</option>
-                                    <option value="price-high">Price: High to Low</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4 d-flex align-items-end">
-                                <button type="submit" class="btn btn-primary w-100">Search</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Product Listing Section -->
                 <div class="th-sort-bar">
                     <div class="row justify-content-between align-items-center">
                         <div class="col-md">
@@ -393,75 +560,119 @@
                         </div>
                         <div class="col-md-auto">
                             <form class="woocommerce-ordering" method="get">
-
+                                <select class="single-select" id="st-sort">
+                                    <option>Sort by Latest</option>
+                                    <option>Sort by Oldest</option>
+                                    <option>Sort by Name</option>
+                                    <option>Sort by Price</option>
+                                </select>
                             </form>
                         </div>
                     </div>
                 </div>
 
-                <div class="row gy-4">
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
-                        <div class="th-product product-grid">
-                            <div class="product-img">
-                                <img
-                                    src="assets/img/product/product_1_1.jpg"
-                                    alt="Product Image"
-                                    />
-                                <span class="product-tag">Hot</span>
-                                <div class="actions">
-                                    <a href="#QuickView" class="icon-btn popup-content"
-                                       ><i class="far fa-eye"></i
-                                        ></a>
-                                    <a href="cart.html" class="icon-btn"
-                                       ><i class="far fa-cart-plus"></i
-                                        ></a>
-                                    <a href="wishlist.html" class="icon-btn"
-                                       ><i class="far fa-heart"></i
-                                        ></a>
+                <div class="row gy-40">
+
+                    <!-- Start Shop Area  -->
+                    <div class="axil-shop-area axil-section-gap bg-color-white">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="axil-shop-sidebar" >
+                                        <div class="d-lg-none">
+                                            <button class="sidebar-close filter-close-btn"><i class="fas fa-times"></i></button>
+                                        </div>
+                                        <div class="toggle-list product-categories active">
+                                            <h6 class="title">CATEGORY</h6>
+                                            <div class="shop-submenu">
+                                                <ul id="category-options">
+                                                    <!--<li class="current-cat"><a href="#">Apple</a></li>-->
+                                                    <li id="category-li"><a id="category-a">Fresh Vegetables</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="toggle-list product-categories product-gender active">
+                                            <h6 class="title">QUALITY</h6>
+                                            <div class="shop-submenu">
+                                                <ul id="quality-options">
+                                                    <!--<li class="chosen"><a href="#">New</a></li>-->
+                                                    <li id="quality-li"><a id="quality-a">Fresh</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="toggle-list product-price-range active">
+                                            <h6 class="title">PRICE</h6>
+                                            <div class="shop-submenu">
+                                                <form action="#" class="mt--25">
+                                                    <div id="slider-range"></div>
+                                                    <div class="flex-center mt--20">
+                                                        <input type="text" id="amount" class="amount-range" readonly>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <button class="axil-btn btn-bg-primary" onclick="searchProducts(0);">Apply</button>
+                                        <button class="axil-btn btn-bg-lighter mt--10">Reset All</button>
+                                    </div>
+                                    <!-- End .axil-shop-sidebar -->
                                 </div>
-                            </div>
-                            <div class="product-content">
-                                <a href="shop-details.html" class="product-category"
-                                   >Fresh Fruits</a
-                                >
-                                <h3 class="product-title">
-                                    <a href="shop-details.html">Bosco Apple Fruit</a>
-                                </h3>
-                                <span class="price">$177.85</span>
-                                <div class="woocommerce-product-rating">
-                                    <span class="count">(120 Reviews)</span>
-                                    <div
-                                        class="star-rating"
-                                        role="img"
-                                        aria-label="Rated 5.00 out of 5"
-                                        >
-                                        <span
-                                            >Rated <strong class="rating">5.00</strong> out of 5 based
-                                            on <span class="rating">1</span> customer rating</span
-                                        >
+                                <div class="col-lg-9">
+
+                                    <!-- End .row -->
+                                    <div class="row row--15" id="st-product-container">
+                                        <div class="col-xl-3 col-lg-4 col-sm-6" id="st-product">
+                                            <div class="th-product product-grid" >
+                                                <div class="product-img">
+                                                    <img
+                                                        id="st-product-img-1"
+                                                        src="assets/img/product/product_1_1.jpg"
+                                                        alt="Product Image"
+                                                        />
+                                                    <span class="product-tag">Hot</span>
+                                                    <div class="actions">
+                                                        <a href="#" class="icon-btn popup-content" id="st-product-a2"
+                                                           ><i class="far fa-eye"></i
+                                                            ></a>
+                                                        <a href="cart.html" class="icon-btn" id="add-to-cart-main"
+                                                           ><i class="far fa-cart-plus"></i
+                                                            ></a>
+                                                        <a href="wishlist.html" class="icon-btn"
+                                                           ><i class="far fa-heart"></i
+                                                            ></a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                                    <a href="#" class="product-category"
+                                                       >Fresh Fruits</a
+                                                    >
+                                                    <h3 class="product-title" >
+                                                        <a href="#" id="st-product-a" ><span id="st-product-title">Bosco Apple Fruit</span></a>
+                                                    </h3>
+                                                    <span class="price" id="st-product-price">$177.85</span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- End Single Product  -->
+
+                                    </div>
+                                    <div class="text-center pt--20" id="st-pagination-container">
+                                        <a href="#" id="st-pagination-button" class="axil-btn btn-bg-lighter me-2">1</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- End .container -->
                     </div>
-                </div>
+                    <!-- End Shop Area  -->
 
-                <!-- Pagination -->
-                <div class="th-pagination text-center pt-50">
-                    <ul>
-                        <li><a href="blog.html">1</a></li>
-                        <li><a href="blog.html">2</a></li>
-                        <li><a href="blog.html">3</a></li>
-                        <li>
-                            <a href="blog.html"><i class="far fa-arrow-right"></i></a>
-                        </li>
-                    </ul>
-                </div>
 
+
+                </div>
+                
             </div>
         </section>
-
-
         <div class="">
             <div class="container z-index-common">
                 <div class="newsletter-wrap">
@@ -495,7 +706,7 @@
                             <div class="widget footer-widget">
                                 <div class="th-widget-about">
                                     <div class="about-logo">
-                                        <a href="index.html"
+                                        <a href="home-organic-farm.html"
                                            ><img src="assets/img/logo-footer.svg" alt="Frutin"
                                               /></a>
                                     </div>
@@ -648,7 +859,7 @@
                         <div class="col-md-6">
                             <p class="copyright-text">
                                 Copyright <i class="fal fa-copyright"></i> 2023
-                                <a href="index.html">Frutin</a>. All Rights
+                                <a href="home-organic-farm.html">Frutin</a>. All Rights
                                 Reserved.
                             </p>
                         </div>
@@ -681,6 +892,11 @@
         <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
         <script src="assets/js/app.min.js"></script>
         <script src="assets/js/main.js"></script>
+        <script src="assets/js/notification.js"></script>
+
+        <script src="assets/js/search.js"></script>
+
+        <script src="assets/js/mmain.js"></script>
     </body>
 
 </html>
